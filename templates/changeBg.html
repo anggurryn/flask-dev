@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <td class="col-md-3">
+            <p>Change Mode</p>
+        </td>
+        <td>
+            <select class="form-control" name="bg" id="bg">
+                <option value="white">Light Mode</option>
+                <option value="black">Dark Mode</option>
+                <option value="red">Blood Mode</option>
+            </select>
+        </td>
+    </tr>
+</table>
+
+<script>
+    let bg = document.getElementById('bg');
+
+    bg.addEventListener('change', () => {
+        document.body.style.backgroundColor = bg.value;
+        if (bg.value == 'black') {
+            document.querySelector('p').style.color = 'white';
+        } else {
+            document.querySelector('p').style.color = 'black';
+
+        }
+    })
+</script>
+{% endblock %}

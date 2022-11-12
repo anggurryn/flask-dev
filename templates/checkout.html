@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <td colspan="2">
+            <select class="form-control" name="diskon" id="diskon">
+                <option value="0">Voucher</option>
+                <option value="0.05">discon 5%</option>
+                <option value="0.10">discon 10%</option>
+                <option value="0.12">discon 12%</option>
+            </select>
+        </td>
+        <td class="col-md-2">
+            <button class="btn btn-primary" id="sub">Checkout</button>
+        </td>
+    </tr>
+    <tr>
+        <th>Buah</th>
+        <th>Jumlah /buah</th>
+        <th>Harga</th>
+    </tr>
+    <tr>
+        <td>Durian</td>
+        <td><input class="form-control" type="number" name="price" id="d-price"></td>
+        <td>
+            <p id="total-d-price"></p>
+        </td>
+    </tr>
+    <tr>
+        <td>Jambu</td>
+        <td><input class="form-control" type="number" name="price" id="j-price"></td>
+        <td>
+            <p id="total-j-price"></p>
+        </td>
+    </tr>
+    <tr>
+        <td>Alpukat</td>
+        <td><input class="form-control" type="number" name="price" id="a-price"></td>
+        <td>
+            <p id="total-a-price"></p>
+        </td>
+    </tr>
+    <tr>
+        <td>Jeruk</td>
+        <td><input class="form-control" type="number" name="price" id="je-price"></td>
+        <td>
+            <p id="total-je-price"></p>
+        </td>
+    </tr>
+</table>
+<table class="table">
+
+</table>
+<script>
+    // belanjaan /kg
+    let durian = document.getElementById('d-price');
+    let alpukat = document.getElementById('a-price');
+    let jeruk = document.getElementById('je-price');
+    let jambu = document.getElementById('j-price');
+    // price belanjaan 
+    let Tdurian = document.getElementById('total-d-price');
+    let Talpukat = document.getElementById('total-a-price');
+    let Tjeruk = document.getElementById('total-je-price');
+    let Tjambu = document.getElementById('total-j-price');
+
+    let total = document.getElementById('total');
+    let tagihan = document.getElementById('tagihan');
+    let diskon = document.getElementById('diskon');
+
+    let sub = document.getElementById('sub');
+
+    durian.addEventListener('keyup', durianp);
+    jambu.addEventListener('keyup', jambup);
+    jeruk.addEventListener('keyup', jerukp);
+    alpukat.addEventListener('keyup', alpukatp);
+    
+    sub.addEventListener('click', ()=>{
+        alert('Total Belanjaan : ' +(durianp() + jambup() + alpukatp() + jerukp()));
+    })
+
+    diskon.addEventListener('change',()=>{
+        alert('Gunakan Voucher???')
+    })
+
+
+
+    function durianp() {
+        let price = durian.value * 20000 - (20000 * diskon.value);
+        Tdurian.innerText = price;
+        return price;
+    }
+    function jambup(){
+        let price = jambu.value * 2000 - (2000 * diskon.value);
+        Tjambu.innerText = price;
+        return price;
+    }
+    function alpukatp(){
+        let price = alpukat.value * 3000 - (3000 * diskon.value);
+        Talpukat.innerText = price;
+        return price;
+    }
+    function jerukp(){
+        let price = jeruk.value * 2000 - (2000 * diskon.value);
+        Tjeruk.innerText = price;
+        return price;
+    }
+
+</script>
+{% endblock %}

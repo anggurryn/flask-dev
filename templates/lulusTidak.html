@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <td>Masukan Nilai Kamu :</td>
+        <td><input class="form-control" type="number" name="nilai" id="nilai"></td>
+        <td><button id="sub" class="btn btn-primary">Check</button></td>
+    </tr>
+</table>
+
+<script>
+    let nilai = document.getElementById('nilai');
+    let submit = document.getElementById('sub');
+
+    submit.addEventListener('click', () => {
+        if (nilai.value >= 75) {
+            return alert('Selamat boy kamu lulus');
+        } else {
+            return alert('yaahhh kamu nggak lulus boy');
+        }
+    })
+</script>
+{% endblock %}

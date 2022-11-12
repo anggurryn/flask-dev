@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <td>Masukan Angka :</td>
+        <td><input type="number" name="num" id="num" class="form-control"></td>
+        <td><button class="btn btn-primary" id="sub">Check</button></td>
+    </tr>
+</table>
+
+<script>
+    let num = document.getElementById('num');
+    let sub = document.getElementById('sub');
+
+    sub.addEventListener('click', () => {
+        if (num.value % 2 == 0) {
+            alert(num.value + ' termasuk bilangan Genap')
+        } else {
+            alert(num.value + ' termasuk bilangan Ganjil')
+        }
+    })
+</script>
+{% endblock %}

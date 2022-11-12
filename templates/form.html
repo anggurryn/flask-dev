@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <td class="col-md-2">sub </td>
+        <td colspan="2"><input class="form-control" type="text" id="nama"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Agama </td>
+        <td colspan="2"><input class="form-control" type="text" id="agama"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>No Absen </td>
+        <td colspan="2"><input class="form-control" type="number" id="absen"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Alamat </td>
+        <td><input class="form-control" type="text" id="alamat"></td>
+        <td class="col-md-1"><button type="reset" class="btn btn-outline-primary" id="sub"
+                value="reset">Submit</button></td>
+    </tr>
+</table>
+<table class="table">
+    <h2 class="pt-5">Result</h2>
+    <tr>
+        <td class="col-md-2">Nama </td>
+        <td id="fields-nama"></td>
+    </tr>
+    <tr>
+        <td>Agama </td>
+        <td id="fields-agama"></td>
+    </tr>
+    <tr>
+        <td>No Absen </td>
+        <td id="fields-absen"></td>
+    </tr>
+    <tr>
+        <td>Alamat </td>
+        <td id="fields-alamat"></td>
+    </tr>
+</table>
+<script>
+    let nama = document.getElementById('nama');
+    let agama = document.getElementById('agama');
+    let absen = document.getElementById('absen');
+    let alamat = document.getElementById('alamat');
+
+    let fnama = document.getElementById('fields-nama');
+    let fagama = document.getElementById('fields-agama');
+    let fabsen = document.getElementById('fields-absen');
+    let falamat = document.getElementById('fields-alamat');
+
+
+    let sub = document.getElementById('sub');
+
+    sub.addEventListener('click', () => {
+        fnama.innerText = nama.value;
+        fagama.innerText = agama.value;
+        fabsen.innerText = absen.value;
+        falamat.innerText = alamat.value;
+    })
+
+</script>
+{% endblock %}

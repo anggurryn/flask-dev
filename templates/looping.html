@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <td>Masukan angka</td>
+        <td><input type="number" name="num" id="num" class="form-control"></td>
+        <td><button id="submit" class="btn btn-primary">Show</button></td>
+    </tr>
+</table>
+<p id="result"></p>
+
+<script>
+    let num = document.getElementById('num');
+    let sub = document.getElementById('submit');
+    let result = document.getElementById('result');
+
+    sub.addEventListener('click', () => {
+        for (let u = 1; u <= num.value; u++) {
+            result.innerText += "Saya sedang belajar js \n";
+        }
+    })
+</script>
+{% endblock %}
