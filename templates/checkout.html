@@ -76,12 +76,14 @@
     alpukat.addEventListener('keyup', alpukatp);
     
     sub.addEventListener('click', ()=>{
-        alert('Total Belanjaan : ' +(durianp() + jambup() + alpukatp() + jerukp()));
+        alert(
+            'Total Belanjaan : ' +(durianp() + jambup() + alpukatp() + jerukp()) +'\n'
+        );
     })
 
     diskon.addEventListener('change',()=>{
-        alert('Gunakan Voucher???')
-    })
+            alert('Gunakan diskon '+diskon.value*100+'% ???')
+        })
 
 
 
